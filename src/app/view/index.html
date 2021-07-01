@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>egg.js聊天demo</title>
+</head>
+<script src="jquery.js"></script>
+<script>
+function send()
+{
+    $.ajax({
+        url:'http://localhost:7001/sendMsg',
+        type:'GET',
+        data:"msg="+($('#text').val()),
+        contentType: false,
+        processData: false,
+        headers:'csrftoken',
+        success:function(data){
+            //TODO 处理接受响应请求
+        },
+        error:function(){
+            alert("request error");
+        },
+    });
+}
+
+
+</script>
+<body>
+<label for="text">发送的信息：</label><input id="text" style="border-color: red"/>
+<button onclick="$('#text').val('')">清空</button>
+<button onclick="send()">发送</button>
+</body>
+</html>
