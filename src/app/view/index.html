@@ -9,7 +9,7 @@
 function send()
 {
     $.ajax({
-        url:'http://localhost:7001/sendMsg',
+        url: window.location.href + 'sendMsg',
         type:'GET',
         data:"msg="+($('#text').val()),
         contentType: false,
@@ -28,7 +28,7 @@ function send()
 </script>
 <body>
 <label for="text">发送的信息：</label><input id="text" style="border-color: red"/>
-<button onclick="$('#text').val('')">清空</button>
 <button onclick="send()">发送</button>
+<button onclick="$('#text').val('')">清空</button>
 </body>
 </html>
